@@ -25,5 +25,10 @@ namespace Management.Infrastructure.Services
         {
             return this.UserSysRepository.GetAll();
         }
+
+        public bool UserAdmin(int userId)
+        {
+            return this.UserSysRepository.UserAdmin(userId);
+        }
     }
 }

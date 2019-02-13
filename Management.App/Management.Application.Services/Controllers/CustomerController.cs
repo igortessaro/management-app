@@ -1,4 +1,5 @@
-﻿using Management.Domain.Factories;
+﻿using Management.Domain.Dtos.Customer;
+using Management.Domain.Factories;
 using Management.Domain.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,10 +19,10 @@ namespace Management.Application.Services.Controllers
             this.NotificationFactory = notificationFactory;
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpPost]
+        public IActionResult Find(CustomerFilterDto customerFilter)
         {
-            var list = this.CustomerService.Find();
+            var list = this.CustomerService.Find(customerFilter);
 
             return this.Ok(this.NotificationFactory.Success(list));
         }

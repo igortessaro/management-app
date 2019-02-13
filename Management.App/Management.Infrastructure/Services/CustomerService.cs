@@ -11,14 +11,27 @@ namespace Management.Infrastructure.Services
     {
         public ICustomerRepository CustomerRepository { get; set; }
 
-        public CustomerService(ICustomerRepository customerRepository)
+        public IUserService UserService { get; set; }
+
+        public CustomerService(ICustomerRepository customerRepository, IUserService userService)
         {
             this.CustomerRepository = customerRepository;
+            this.UserService = userService;
         }
 
-        public IList<CustomerDto> Find()
+        public IList<CustomerDto> Find(CustomerFilterDto customerFilter)
         {
-            return this.CustomerRepository.Find();
+            if (this.UserAdmin(customerFilter.UserId))
+            {
+                return this.CustomerRepository.Find(null, customerFilter);
+            }
+
+            return this.CustomerRepository.Find(customerFilter.UserId, customerFilter);
+        }
+
+        private bool UserAdmin(int userId)
+        {
+            return this.UserService.UserAdmin(userId);
         }
     }
 }

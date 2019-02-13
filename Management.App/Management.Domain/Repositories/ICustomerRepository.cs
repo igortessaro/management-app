@@ -5,6 +5,6 @@ namespace Management.Domain.Repositories
 {
     public interface ICustomerRepository : IRepository
     {
-        IList<CustomerDto> Find();
+        IList<CustomerDto> Find(int? userId, CustomerFilterDto customerFilter);
     }
 }

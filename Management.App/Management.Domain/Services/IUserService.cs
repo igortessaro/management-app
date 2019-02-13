@@ -9,5 +9,7 @@ namespace Management.Domain.Services
         UserSystemDto Find(string email, string password);
 
         IList<ListItemDto> GetAll();
+
+        bool UserAdmin(int userId);
     }
 }

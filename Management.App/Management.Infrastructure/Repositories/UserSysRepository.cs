@@ -24,6 +24,7 @@ namespace Management.Infrastructure.Repositories
                 .Where(x => x.Email.Equals(email) && x.Password.Equals(password))
                 .Select(x => new UserSystemDto
                 {
+                    Id = x.Id,
                     Email = x.Email,
                     Name = x.Login,
                     UserType = x.UserRole != null && x.UserRole.IsAdmin ? UserType.Adm : UserType.Saller
@@ -39,6 +40,14 @@ namespace Management.Infrastructure.Repositories
                     Value = x.Login
                 })
                 .ToList();
+        }
+
+        public bool UserAdmin(int userId)
+        {
+            return this.Query()
+                .Include(x => x.UserRole)
+                .Where(x => x.Id == userId && x.UserRole.IsAdmin)
+                .Any();
         }
     }
 }
