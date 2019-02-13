@@ -5,18 +5,18 @@ using System.Collections.Generic;
 
 namespace Management.Infrastructure.Services
 {
-    public class CityService : ICityService
+    public class RegionService : IRegionService
     {
-        private ICityRespository CityRepository { get; set; }
+        public IRegionRepository RegionRepository { get; set; }
 
-        public CityService(ICityRespository cityRepository)
+        public RegionService(IRegionRepository regionRepository)
         {
-            this.CityRepository = cityRepository;
+            this.RegionRepository = regionRepository;
         }
 
         public IList<ListItemDto> GetAll()
         {
-            return this.CityRepository.GetAll();
+            return this.RegionRepository.GetAll();
         }
     }
 }

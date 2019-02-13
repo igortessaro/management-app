@@ -1,10 +1,10 @@
-﻿using Management.Domain.Entity;
+﻿using Management.Domain.Dtos;
 using System.Collections.Generic;
 
 namespace Management.Domain.Repositories
 {
     public interface ICityRespository : IRepository
     {
-        IList<City> GetAll();
+        IList<ListItemDto> GetAll();
     }
 }

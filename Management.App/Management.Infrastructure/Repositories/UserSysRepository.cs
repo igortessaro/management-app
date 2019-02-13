@@ -1,9 +1,11 @@
-﻿using Management.Domain.Dtos.User;
+﻿using Management.Domain.Dtos;
+using Management.Domain.Dtos.User;
 using Management.Domain.Entity;
 using Management.Domain.Repositories;
 using Management.Domain.ValueObjects;
 using Management.Infrastructure.Repositories.Relational;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Management.Infrastructure.Repositories
@@ -26,6 +28,17 @@ namespace Management.Infrastructure.Repositories
                     Name = x.Login,
                     UserType = x.UserRole != null && x.UserRole.IsAdmin ? UserType.Adm : UserType.Saller
                 }).FirstOrDefault();
+        }
+
+        public IList<ListItemDto> GetAll()
+        {
+            return this.Query()
+                .Select(x => new ListItemDto
+                {
+                    Key = x.Id,
+                    Value = x.Login
+                })
+                .ToList();
         }
     }
 }

@@ -1,13 +1,10 @@
 ﻿using Management.Domain.Dtos;
-using Management.Domain.Dtos.User;
 using System.Collections.Generic;
 
 namespace Management.Domain.Repositories
 {
-    public interface IUserSysRepository : IRepository
+    public interface IClassificationRepository : IRepository
     {
-        UserSystemDto Find(string email, string password);
-
         IList<ListItemDto> GetAll();
     }
 }

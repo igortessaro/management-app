@@ -6,13 +6,13 @@ namespace Management.Application.Services.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CityController : ControllerBase
+    public class ClassificationController : ControllerBase
     {
-        public ICityService service { get; set; }
+        public IClassificationService service { get; set; }
 
         public INotificationFactory NotificationFactory { get; set; }
 
-        public CityController(ICityService cityService, INotificationFactory notificationFactory)
+        public ClassificationController(IClassificationService cityService, INotificationFactory notificationFactory)
         {
             this.service = cityService;
             this.NotificationFactory = notificationFactory;

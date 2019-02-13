@@ -1,13 +1,12 @@
 ﻿using Management.Domain.Dtos;
-using Management.Domain.Dtos.User;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Management.Domain.Services
 {
-    public interface IUserService : IService
+    public interface IClassificationService : IService
     {
-        UserSystemDto Find(string email, string password);
-
         IList<ListItemDto> GetAll();
     }
 }

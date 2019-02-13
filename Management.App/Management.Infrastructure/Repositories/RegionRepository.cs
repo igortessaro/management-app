@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace Management.Infrastructure.Repositories
 {
-    public class CityRepository : RelationalRepository<City>, ICityRespository
+    public class RegionRepository : RelationalRepository<Region>, IRegionRepository
     {
-        public CityRepository(PrincipalDbContext dbContext) : base(dbContext)
+        public RegionRepository(PrincipalDbContext dbContext) : base(dbContext)
         {
         }
 
@@ -19,8 +19,7 @@ namespace Management.Infrastructure.Repositories
                 .Select(x => new ListItemDto
                 {
                     Key = x.Id,
-                    Value = x.Name,
-                    ForeignKey = x.RegionId
+                    Value = x.Name
                 })
                 .ToList();
         }
