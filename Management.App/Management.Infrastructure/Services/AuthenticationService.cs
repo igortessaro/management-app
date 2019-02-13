@@ -4,14 +4,18 @@ using Management.Domain.Services;
 
 namespace Management.Infrastructure.Services
 {
-    public class AuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
         public IUserService UserService { get; set; }
 
+        public IEncryptionService EncryptionService { get; set; }
+
         public AuthenticationService(
-            IUserService userService)
+            IUserService userService,
+            IEncryptionService encryptionService)
         {
             this.UserService = userService;
+            this.EncryptionService = encryptionService;
         }
 
         public AuthenticatedUserDto AuthenticateUser(AuthenticateUserDto authenticateUser)
@@ -31,7 +35,9 @@ namespace Management.Infrastructure.Services
                 return new AuthenticatedUserDto("Password is required.");
             }
 
-            UserSystemDto userSystem = this.UserService.Find(authenticateUser.Email, authenticateUser.Password);
+            string passwordDecrypt = this.EncryptionService.Decrypt(authenticateUser.Password);
+
+            UserSystemDto userSystem = this.UserService.Find(authenticateUser.Email, passwordDecrypt);
 
             if (userSystem == null)
             {

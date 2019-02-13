@@ -19,6 +19,12 @@ namespace Management.Infrastructure.Repositories.Relational.Mappers
             builder.HasKey(entity => entity.Id);
 
             builder.ToTable(nameof(Customer), "dbo");
+
+            builder.HasOne(p => p.User).WithMany(b => b.CustomerList).HasForeignKey(p => p.UserId);
+            builder.HasOne(p => p.Classification).WithMany(b => b.CustomerList).HasForeignKey(p => p.ClassificationId);
+            builder.HasOne(p => p.City).WithMany(b => b.CustomerList).HasForeignKey(p => p.CityId);
+            builder.HasOne(p => p.Gender).WithMany(b => b.CustomerList).HasForeignKey(p => p.GenderId);
+            builder.HasOne(p => p.Region).WithMany(b => b.CustomerList).HasForeignKey(p => p.RegionId);
         }
     }
 }

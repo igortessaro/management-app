@@ -1,9 +1,10 @@
 ﻿using Management.Domain.Dtos.User;
 using Management.Domain.Repositories;
+using Management.Domain.Services;
 
 namespace Management.Infrastructure.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         public IUserSysRepository UserSysRepository { get; set; }
 

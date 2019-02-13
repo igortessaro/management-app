@@ -21,6 +21,8 @@ namespace Management.Infrastructure.Repositories.Relational.Mappers
             builder.ToTable(nameof(UserSys), "dbo");
 
             builder.HasOne(p => p.UserRole).WithMany(b => b.UserSysList).HasForeignKey(p => p.UserRoleId);
+
+            builder.HasMany(p => p.CustomerList).WithOne(b => b.User).HasForeignKey(p => p.UserId);
         }
     }
 }

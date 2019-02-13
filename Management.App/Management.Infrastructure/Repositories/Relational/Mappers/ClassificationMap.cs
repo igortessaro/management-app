@@ -19,6 +19,8 @@ namespace Management.Infrastructure.Repositories.Relational.Mappers
             builder.HasKey(entity => entity.Id);
 
             builder.ToTable(nameof(Classification), "dbo");
+
+            builder.HasMany(p => p.CustomerList).WithOne(b => b.Classification).HasForeignKey(p => p.ClassificationId);
         }
     }
 }

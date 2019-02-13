@@ -64,7 +64,7 @@ namespace Management.Application.Services
 
 
             services.AddCors();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();//.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,10 +74,10 @@ namespace Management.Application.Services
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
+            //else
+            //{
+            //    app.UseHsts();
+            //}
 
             app.UseCors(policy => policy
                 .AllowAnyOrigin()
@@ -85,7 +85,7 @@ namespace Management.Application.Services
                 .AllowAnyMethod()
                 .AllowCredentials());
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
 
             // Ativando middlewares para uso do Swagger

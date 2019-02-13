@@ -19,5 +19,15 @@ namespace Management.Domain.Entity
         public int? ClassificationId { get; set; }
 
         public int? UserId { get; set; }
+
+        public Gender Gender { get; set; }
+
+        public City City { get; set; }
+
+        public Region Region { get; set; }
+
+        public Classification Classification { get; set; }
+
+        public UserSys User { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Management.Domain.Entity
+﻿using System.Collections.Generic;
+
+namespace Management.Domain.Entity
 {
     public class UserSys : BaseEntity
     {
@@ -11,5 +13,7 @@
         public int UserRoleId { get; set; }
 
         public UserRole UserRole { get; set; }
+
+        public IList<Customer> CustomerList { get; set; }
     }
 }

@@ -19,6 +19,8 @@ namespace Management.Infrastructure.Repositories.Relational.Mappers
             builder.HasKey(entity => entity.Id);
 
             builder.ToTable(nameof(City), "dbo");
+
+            builder.HasOne(p => p.Region).WithMany(b => b.CityList).HasForeignKey(p => p.RegionId);
         }
     }
 }
