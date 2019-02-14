@@ -7,9 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Management.Application.Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Management.Domain", "Management.Domain\Management.Domain.csproj", "{8F5B0071-8314-445A-A8C0-93DF67144686}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Management.Infrastructure", "Management.Infrastructure\Management.Infrastructure.csproj", "{5847E934-10F1-420B-8E08-692149AE2F5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Management.Infrastructure", "Management.Infrastructure\Management.Infrastructure.csproj", "{5847E934-10F1-420B-8E08-692149AE2F5B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8F5B0071-8314-445A-A8C0-93DF67144686} = {8F5B0071-8314-445A-A8C0-93DF67144686}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3824E1A4-44FA-4A0F-81B8-3218CB55F3A4}"
+	ProjectSection(SolutionItems) = preProject
+		Management.Database\Database.mdf = Management.Database\Database.mdf
+		Management.Database\Database_log.ldf = Management.Database\Database_log.ldf
 	EndProjectSection
 EndProject
 Global
